@@ -1,1 +1,1 @@
-<h1>Hello world</h1>
+<h1>Welcome to Our Site <b><?= $data.getSession('user_name') ?></b>!</h1>
