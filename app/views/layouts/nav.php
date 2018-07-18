@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="<?= PATH ?>">MVC Site</a>
+  <a class="navbar-brand" href="<?= PATH ?>"><i class="fas fa-home"></i>&nbsp;MVC Site</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,14 +14,19 @@
       </li-->
     </ul>
     <ul class="navbar-nav">
+      <?php if(getSession('user_role') == 'admin'): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= PATH ?>post"><i class="fas fa-tachometer-alt"></i>&nbsp;Dashboard</a>
+      </li-->
+      <?php endif; ?> 
       <?php if(getSession('user_name')): ?>
       <li class="nav-item">
-        <a class="nav-link" href="#"><?= getSession('user_name'); ?></a>
+        <a class="nav-link" href="#"><i class="fas fa-user-tie"></i>&nbsp;<?= getSession('user_name'); ?></a>
       </li-->
       <?php endif; ?> 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Member
+          <i class="fas fa-user-circle"></i>&nbsp;Member
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <?php if(getSession('user_name')): ?>
@@ -40,3 +45,5 @@
     </form-->
   </div>
 </nav>
+
+

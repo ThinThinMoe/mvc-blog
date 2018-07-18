@@ -18,10 +18,13 @@ class User extends Controller
 	{
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$name = $_POST['name'];
+				$email = $_POST['email'];
 				$pass = $_POST['password'];
-				$this->model->userCreate($name,$pass);
-				Config::set('msg','User Registed Successfully !');
+
+				$this->model->userCreate($name,$email,$pass);
+				flash('msg','User Registed Successfully !');
 				redirect('user/login');
+				
 			}elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && getSession('user_name') == null) {
 				$this->view('user/register');
 			}else{
@@ -33,15 +36,18 @@ class User extends Controller
 	public function login()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$name = $_POST['name'];
+			$email = $_POST['email'];
 			$pass = $_POST['password'];
-			$user = $this->model->getByName($name);
+
+			$user = $this->model->getByEmail($email);
 
 			if ($user) {
 				setSession('user_name',$user->name);
+				setSession('user_id',$user->id);
+				setSession('user_role',$user->role);
 				redirect();
 			} else {
-				Config::set('msg','User or Password is incorrect !');
+				flash('msg','User or Password is incorrect !');
 				$this->view('user/login');
 			}
 			

@@ -5,10 +5,17 @@
 		</div>
 		<div class="card-body">
 			<form action="<?= PATH?>user/register" method="post">
-			  <div class="form-group">
+				<!-- Username -->
+			  <div class="form-group"> 
 			    <label for="name">User Name</label>
 			    <input type="text" class="form-control" id="name" name="name">
 			  </div>
+			  <!-- Email -->
+			  <div class="form-group">
+			    <label for="email">Email</label>
+			    <input type="email" class="form-control" id="email" name="email">
+			  </div>
+			  <!-- password -->
 			  <div class="form-group">
 			    <label for="password">Password</label>
 			    <input type="password" class="form-control" id="password" name="password">

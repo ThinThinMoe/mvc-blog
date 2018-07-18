@@ -17,11 +17,15 @@
     <!-- Navigation Bar -->
     <?php include ROOT.DS.'app/views/layouts/nav.php' ?>
     
-    <div class="container-fluid">
+    <div class="container-fluid" style="min-height: 450px">
     <!-- Content -->
     <?php include $view ?>
-
     </div>
+
+    <hr>
+    <footer>
+      <p class="text-center">&copy; MVC Site 2017</p>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
