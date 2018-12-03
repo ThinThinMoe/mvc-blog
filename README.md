@@ -13,6 +13,7 @@ Support Mobile View
 ## How-to
 * Import <code>db.sql</code>
 * Edit <code>app/config/config.php</code> with correct DB config
+* Edit <code>public/index.php</code> change path eg. https://domian/
 
 ## Using
 
